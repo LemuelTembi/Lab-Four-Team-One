@@ -146,9 +146,8 @@ void readNewPage(Book &book)
         cout << "Page read!" << endl;
     }
     else
-    {
         cout << "You cannot read this book. You have neither purchased it nor rented it" << endl;
-    }
+    
     cout << endl;
 }
 
@@ -179,10 +178,8 @@ void jumpNewPage(Book &book, int addPages)
         cout << endl;
     }
     else
-    {
         cout << endl
              << "You cannot read this book. You have neither purchased it nor rented it" << endl;
-    }
 }
 
 void newBackup(Book &book, int subPages)
@@ -212,10 +209,8 @@ void newBackup(Book &book, int subPages)
         cout << endl;
     }
     else
-    {
         cout << endl
              << "You cannot read this book. You have neither purchased it nor rented it" << endl;
-    }
 }
 
 void returnNewBook(Book &book)
@@ -228,10 +223,10 @@ void returnNewBook(Book &book)
         cout << "you have returned to book. ";
     }
     else
-    {
         cout << endl
              << "You can only return a book you rented!" << endl;
-    }
+    
+   
     cout << endl;
 }
 
@@ -263,30 +258,23 @@ void displayNewBook(Book &book)
     cout << "The Book title is: " << book.getTitle() << endl;
 
     if (tolower(book.getBookType()) == 'r')
-    {
         cout << "The Book type is: Recreational" << endl;
-    }
+ 
     else if (tolower(book.getBookType()) == 'a')
-    {
         cout << "The Book type is: Academic" << endl;
-    }
+    
     else
-    {
         cout << "The book is neither recreational nor academic" << endl;
-    }
 
     if (book.getBookStatus() == 1)
-    {
         cout << "the book Status is: Purchased" << endl;
-    }
+ 
     else if (book.getBookStatus() == 2)
-    {
         cout << "the book status is: Rented" << endl;
-    }
+
     else
-    {
         cout << "You have neither purchased nor rented the book" << endl;
-    }
+
 
     cout << "The number of pages of the book is: " << book.getPages() << endl;
     cout << "The current page of the book is: " << book.getCurrentPage() << endl;
