@@ -28,6 +28,7 @@ void newBackup(Book &, int);
 void returnNewBook(Book &);
 void displayNewBook(Book &);
 void changeNewBook(Book &, string, string, string, int);
+void checkInput(Book []);
 
 // int library[librarySize];
 // int &bookIndex;
@@ -35,11 +36,21 @@ void changeNewBook(Book &, string, string, string, int);
 int main()
 // beginning of int main
 {
+    Book bookLibrary[10];
+
+    checkInput(bookLibrary);
+
+    return 0;
+
+} // end of main
+
+
+void checkInput (Book bookLibrary[])
+{
     int number, *bookIndex, *otherNum;
     string *bookISBN, *bookTitle, *bookAurthor;
     char *bookTy;
     float *bookPric;
-    Book bookLibrary[10];
 
     cin >> number;
 
@@ -116,9 +127,9 @@ int main()
 
         cin >> number;
     }
-    return 0;
+}
 
-} // end of main
+
 
 void acquireNewBook(Book &book, int newBookStatus, char newBookType, float amtPaid)
 {
@@ -147,7 +158,7 @@ void readNewPage(Book &book)
     }
     else
         cout << "You cannot read this book. You have neither purchased it nor rented it" << endl;
-    
+
     cout << endl;
 }
 
@@ -156,8 +167,8 @@ void jumpNewPage(Book &book, int addPages)
     cout << "option 3 was selected... " << endl;
     if (book.getBookStatus() != 3)
     {
-        cout << "Number of pages you jumped forward by: ";
-        cout << addPages << endl;
+        cout << "Number of pages you want to jump forward by: ";
+        cout << addPages;
 
         if (addPages > book.getPages() || addPages > book.getPages() - book.getCurrentPage())
         {
@@ -173,7 +184,7 @@ void jumpNewPage(Book &book, int addPages)
         {
             book.jumpPages(addPages);
             cout << endl
-                 << "You went forward by " << addPages << " number of pages!" << endl;
+                 << "You jumped forward by " << addPages << " number of pages!" << endl;
         }
         cout << endl;
     }
@@ -188,7 +199,7 @@ void newBackup(Book &book, int subPages)
          << "option 4 was selected... " << endl;
     if (book.getBookStatus() != 3)
     {
-        cout << "Number of pages you skipped backwards by: ";
+        cout << "Number of pages you want to skip backwards by: ";
         cout << subPages << endl;
 
         if (subPages > book.getCurrentPage())
@@ -199,12 +210,12 @@ void newBackup(Book &book, int subPages)
         else if (subPages < 0)
         {
             cout << endl
-                 << "You cannot jump page by a negative number..." << endl;
+                 << "You cannot skip page by a negative number..." << endl;
         }
         else
         {
             book.backup(subPages);
-            cout << "You went backwards by " << subPages << " number of pages!" << endl;
+            cout << "You skipped backwards by " << subPages << " number of pages!" << endl;
         }
         cout << endl;
     }
@@ -220,13 +231,13 @@ void returnNewBook(Book &book)
     if (book.getBookStatus() == 2)
     {
         book.returnBook();
-        cout << "you have returned to book. ";
+        cout << "you have returned book. ";
     }
     else
         cout << endl
              << "You can only return a book you rented!" << endl;
-    
-   
+
+
     cout << endl;
 }
 
@@ -259,16 +270,16 @@ void displayNewBook(Book &book)
 
     if (tolower(book.getBookType()) == 'r')
         cout << "The Book type is: Recreational" << endl;
- 
+
     else if (tolower(book.getBookType()) == 'a')
         cout << "The Book type is: Academic" << endl;
-    
+
     else
         cout << "The book is neither recreational nor academic" << endl;
 
     if (book.getBookStatus() == 1)
         cout << "the book Status is: Purchased" << endl;
- 
+
     else if (book.getBookStatus() == 2)
         cout << "the book status is: Rented" << endl;
 
