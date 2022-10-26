@@ -124,13 +124,13 @@ void acquireNewBook(Book &book, int newBookStatus, char newBookType, float amtPa
 {
     cout << endl
          << "Option 1 was selected... " << endl;
-    cout << "Please enter book status(1- purchased, 2-rented, 3-neither of these): ";
+    cout << "Book status(1- purchased, 2-rented, 3-neither of these): ";
     cout << newBookStatus << endl;
 
-    cout << "Please enter book Type(R/r for recreational, A/a for academic, N/n-neither): ";
+    cout << "Book Type(R/r for recreational, A/a for academic, N/n-neither): ";
     cout << newBookType << endl;
 
-    cout << "Please enter amount paid for book: ";
+    cout << "Amount paid for book: ";
     cout << amtPaid << endl;
 
     book.acquireBook(newBookStatus, newBookType, amtPaid);
@@ -157,7 +157,7 @@ void jumpNewPage(Book &book, int addPages)
     cout << "option 3 was selected... " << endl;
     if (book.getBookStatus() != 3)
     {
-        cout << "please enter the number of pages you want to go forward: ";
+        cout << "Number of pages you jumped forward by: ";
         cout << addPages << endl;
 
         if (addPages > book.getPages() || addPages > book.getPages() - book.getCurrentPage())
@@ -191,7 +191,7 @@ void newBackup(Book &book, int subPages)
          << "option 4 was selected... " << endl;
     if (book.getBookStatus() != 3)
     {
-        cout << "please enter the number of pages you want to go backwards: ";
+        cout << "Number of pages you skipped backwards by: ";
         cout << subPages << endl;
 
         if (subPages > book.getCurrentPage())
@@ -238,16 +238,16 @@ void returnNewBook(Book &book)
 void changeNewBook(Book &book, string changedISBN, string changedTitle, string changedAuthor, int changedNumPages)
 {
     cout << "option 6 was selected " << endl;
-    cout << "Enter new ISBN: ";
+    cout << "New ISBN: ";
     cout << changedISBN << endl;
 
-    cout << "Enter new Title: ";
+    cout << "New Title: ";
     cout << changedTitle << endl;
 
-    cout << "Enter new Author: ";
+    cout << "New Author: ";
     cout << changedAuthor << endl;
 
-    cout << "Enter new number of pages: ";
+    cout << "New number of pages: ";
     cout << changedNumPages << endl;
 
     book.changeBook(changedISBN, changedTitle, changedAuthor, changedNumPages);
